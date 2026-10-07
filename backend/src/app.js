@@ -21,6 +21,10 @@ app.use(express.urlencoded({ limit: "40kb", extended: true }));
 
 app.use("/api/v1/users", userRoutes);
 
+app.get("/", (req, res) => {
+    return res.json({ message: "Zoom Backend API Server is running!" });
+});
+
 const start = async () => {
     app.set("mongo_user")
     const connectionDb = await mongoose.connect("mongodb+srv://imdigitalashish:imdigitalashish@cluster0.cujabk4.mongodb.net/")
